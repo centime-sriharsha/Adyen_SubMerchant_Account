@@ -1,0 +1,333 @@
+{
+	"info": {
+		"_postman_id": "4b8fc6f1-bf87-419d-a6ca-5189ddce76d1",
+		"name": "Test_Adyen_Sriharsha",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Health",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"accountHolderCode\": \"030820221755\",\n    \"accountHolderDetails\": {\n        \"email\": \"sriharsha@centime.com\",\n        \"individualDetails\": {\n            \"name\": {\n                \"firstName\": \"Sriharsha\",\n                \"gender\": \"MALE\",\n                \"lastName\": \"G\"\n            }\n        },\n        \"address\": {\n            \"country\": \"US\"\n        }\n    },\n    \"legalEntity\": \"Individual\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createSubMerchant",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"accountHolderCode\": \"test_040820211102\",\n    \"accountHolderDetails\": {\n        \"email\": \"sriharsha@centime.com\",\n        \"individualDetails\": {\n            \"name\": {\n                \"firstName\": \"Sriharsha\",\n                \"gender\": \"MALE\",\n                \"lastName\": \"G\"\n            }\n        },\n        \"address\": {\n            \"country\": \"US\"\n        }\n    },\n    \"legalEntity\": \"Individual\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/accountHolder",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"accountHolder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createAccount",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"accountHolderCode\": \"12345678\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/account",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"account"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateAccount",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"accountCode\": \"8816280679952180\",\n  \"payoutSchedule\": {\n    \"schedule\": \"WEEKLY\",\n    \"action\": \"CLOSE\"\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/account",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"account"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "closeAccount",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"accountCode\": \"8816280679952180\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/account/closeAccount",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"account",
+						"closeAccount"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "suspendAccountHolder",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"accountHolderCode\": \"test_040820211102\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/accountHolder/suspendAccountHolder",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"accountHolder",
+						"suspendAccountHolder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "closeAccountHolder",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"accountHolderCode\": \"test_040820211102\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/accountHolder/closeAccountHolder",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"accountHolder",
+						"closeAccountHolder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "unSuspendAccountHolder",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"accountHolderCode\": \"test_040820211102\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/accountHolder/unSuspendAccountHolder",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"accountHolder",
+						"unSuspendAccountHolder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateSubMerchant",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"accountHolderCode\": \"test_040820211102\",\n    \"accountHolderDetails\": {\n        \"address\": {\n            \"city\": null,\n            \"country\": \"US\",\n            \"houseNumberOrName\": null,\n            \"postalCode\": null,\n            \"stateOrProvince\": null,\n            \"street\": null\n        },\n        \"bankAccountDetails\": [],\n        \"businessDetails\": null,\n        \"email\": \"sriharsha@centime.com\",\n        \"fullPhoneNumber\": null,\n        \"individualDetails\": {\n            \"personalData\": null,\n            \"name\": {\n                \"infix\": null,\n                \"gender\": \"MALE\",\n                \"lastName\": \"G\",\n                \"firstName\": \"Sriharsha Rama\"\n            }\n        },\n        \"merchantCategoryCode\": \"7999\",\n        \"metadata\": null,\n        \"payoutMethods\": [],\n        \"webAddress\": null,\n        \"phoneNumber\": null,\n        \"principalBusinessAddress\": null,\n        \"bankAggregatorDataReference\": null,\n        \"storeDetails\": null\n    },\n    \"accountHolderStatus\": {\n        \"events\": [],\n        \"payoutState\": {\n            \"allowPayout\": true,\n            \"disableReason\": null,\n            \"disabled\": false,\n            \"notAllowedReason\": null,\n            \"payoutLimit\": {\n                \"value\": 0,\n                \"currency\": \"USD\"\n            },\n            \"tierNumber\": 0\n        },\n        \"processingState\": {\n            \"disableReason\": null,\n            \"processedTo\": {\n                \"value\": 0,\n                \"currency\": \"USD\"\n            },\n            \"processedFrom\": {\n                \"value\": 0,\n                \"currency\": \"USD\"\n            },\n            \"tierNumber\": 0,\n            \"disabled\": false\n        },\n        \"status\": \"Active\",\n        \"statusReason\": null\n    },\n    \"accounts\": [\n        {\n            \"accountCode\": \"8616280551995648\",\n            \"beneficiaryAccount\": null,\n            \"beneficiaryMerchantReference\": null,\n            \"description\": \"TransactionAccount\",\n            \"metadata\": null,\n            \"payoutSchedule\": {\n                \"schedule\": \"HOLD\",\n                \"nextScheduledPayout\": null\n            },\n            \"status\": \"Active\",\n            \"bankAccountUUID\": null,\n            \"payoutMethodCode\": null,\n            \"payoutSpeed\": \"STANDARD\"\n        }\n    ],\n    \"description\": null,\n    \"invalidFields\": null,\n    \"legalEntity\": \"Individual\",\n    \"primaryCurrency\": null,\n    \"pspReference\": \"8616280569170622\",\n    \"resultCode\": null,\n    \"systemUpToDateTime\": \"2021-08-04T06:01:57.000+00:00\",\n    \"verification\": {\n        \"shareholders\": [],\n        \"accountHolder\": null,\n        \"bankAccounts\": [],\n        \"payoutMethods\": []\n    },\n    \"verificationProfile\": null\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/accountHolder",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"accountHolder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getSubMerchant",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/accountHolder/test_040820211102",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"accountHolder",
+						"test_040820211102"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
